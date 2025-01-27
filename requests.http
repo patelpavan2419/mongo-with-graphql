@@ -1,0 +1,5 @@
+### List all messages
+GET http://localhost:8000/users
+
+### Get a particular message
+DELETE  http://localhost:8000/users/6797468f6977f8165567f357
