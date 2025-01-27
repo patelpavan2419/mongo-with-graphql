@@ -24,7 +24,7 @@ server start at http://localhost:8000/
 
 
 ## RUN mongoDB Crud operation
-execute commands from requests.http file
+### execute commands from requests.http file
 
 ## RUN mongoDB Crud operation using GraphQL
 use http://localhost:8000/graphql  endpoint to perform below queries 
