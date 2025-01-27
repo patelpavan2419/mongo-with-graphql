@@ -7,7 +7,7 @@
 ## Steps to Set Up and Run the Service 
 1. **Clone the repository** 
 ``` 
-git clone https://github.com/patelpavan2419/graphQL
+git clone https://github.com/patelpavan2419/mongo-with-graphql.git
 
 ```
 
