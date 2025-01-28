@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const userfeature = require('./services/user-crud.js')
 const express = require('express');
 const app = express()
-const portno = 8001
+const portno = 8000
 const { graphqlHTTP } = require('express-graphql');
 const schema = require('./schema.js')
 
