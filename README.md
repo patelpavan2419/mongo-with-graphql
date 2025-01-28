@@ -1,5 +1,5 @@
 # mongo-with-graphql
-
+A project to perform MongoDB CRUD operations using both HTTP client and GraphQL.
 
 ## Prerequisites
 - Node.js and npm installed (for local development)
@@ -20,11 +20,11 @@ npm install
 ```
 npm start
 ```
-server start at http://localhost:8000/
+server start at [http://localhost:8000/](http://localhost:8000/)
 
 
 ## Perform mongoDB Crud operation using http clinet
-### go tho the requests.http file and perform CRUD operation on user
+### go tho the `requests.http` file and perform CRUD operation on user
 
 ## RUN mongoDB Crud operation using GraphQL
 use http://localhost:8000/graphql  endpoint to perform below queries 
