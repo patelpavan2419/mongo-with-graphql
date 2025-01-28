@@ -23,8 +23,8 @@ npm start
 server start at http://localhost:8000/
 
 
-## RUN mongoDB Crud operation
-### execute commands from requests.http file
+## Perform mongoDB Crud operation using http clinet
+### go tho the requests.http file and perform CRUD operation on user
 
 ## RUN mongoDB Crud operation using GraphQL
 use http://localhost:8000/graphql  endpoint to perform below queries 

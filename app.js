@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const userfeature = require('./services/user-crud.js')
 const express = require('express');
 const app = express()
-const portno = 8000
+const portno = 8001
 const { graphqlHTTP } = require('express-graphql');
 const schema = require('./schema.js')
 
@@ -35,7 +35,6 @@ mongoose.connection
 
   // add user to database and encryps password 
   app.post('/adduser', (req,res) => {
-    console.log('~~~~~~~~~~~~~`')
     userfeature.adduser(req, res);
   })
 
@@ -52,6 +51,7 @@ mongoose.connection
 
 // patch update user from database // patch can update one part of field // patch can have few details incompare to PUT
   app.patch('/users/:id', (req,res) => {
+    console.log('ASADADADADA')
     userfeature.patchuser(req, res)
   })
 

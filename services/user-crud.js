@@ -28,7 +28,6 @@ const userfeature = (function () {
     };
 
     const adduser = (req,res) => {
-        console.log('~~~~~~~~~~~~~`')
         const newUser = new user();
           newUser.Name= req.body.Name,
           newUser.email= req.body.email,
@@ -62,20 +61,23 @@ const userfeature = (function () {
         
     };
 
-    const encryptHash = (newUser, res) => {
-      bcrypt.genSalt(10, (err, salt)=>{
-        bcrypt.hash(newUser.password, salt, (err, hash) => {
-          if (err) return err;
-          newUser.password = hash;
-          newUser.save().then(user => {
-            res.send('added new user' + user).status(200);;
-          }).catch(e=>{
-            res.send('user not saved bcz' + e).status(200);;
-          })
-        })
-      })
-    }
-
+    const encryptHash = async (password) => {
+      return new Promise((resolve, reject) => {
+        bcrypt.genSalt(10, (err, salt) => {
+          if (err) {
+            reject(err);
+            return;
+          }
+          bcrypt.hash(password, salt, (err, hash) => {
+            if (err) {
+              reject(err);
+              return;
+            }
+            resolve(hash);
+          });
+        });
+      });
+    };
     
     const findall = (req,res) => { 
       user.find({}).then(function (fetched_data){
@@ -90,14 +92,12 @@ const userfeature = (function () {
       // return (user.find({}))
     }
 
-    const updateuser = (req,res) => { 
+    const updateuser = async (req,res) => { 
       const id = req.params.id;
-      console.log('sss',id)
       const Name = req.body.Name;
       const email = req.body.email;
-      const password = req.body.password;
+      const password = await encryptHash(req.body.password)
 
-      console.log('name----',Name)
       user.findByIdAndUpdate(id,{$set: {Name: Name, email: email, password: password}},{new: true})
       .then(id_data => {
         res.send(id_data);
@@ -113,7 +113,6 @@ const userfeature = (function () {
     const patchuser = (req,res) => { 
       const id = req.params.id;
       const Name = req.body.Name;
-      console.log(Name)
 
       user.findByIdAndUpdate(id,{$set: {Name: Name}},{new: true})
       .then(id_data => {
@@ -127,13 +126,11 @@ const userfeature = (function () {
               user.Name = 'updated';
               user.email = req.body.email;
               password = req.body.password;
-
               user.save().then(data =>{
                 res.send(data);
               })
             }).catch(e => {
-              console.log('error found:',e)
-            })
+        })
     }
 
 

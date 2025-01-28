@@ -1,5 +1,42 @@
-### List all messages
-GET http://localhost:8000/users
+### List all users
+GET http://localhost:8001/users
 
-### Get a particular message
+### add user to database and encryps password 
+POST http://localhost:8001/adduser
+Content-Type: application/json
+
+{
+    "Name": "enfo27",
+    "email": "neweai3l@examsple.com",
+    "password": "newema4il@example.com"
+}
+
+### check user exist in database and compare password to get login
+POST http://localhost:8001/login
+Content-Type: application/json
+
+{
+    "email": "newemail@example.com",
+    "password": "newemail@example.com"
+}
+
+### update specific user field 
+PATCH http://localhost:8001/users/6798a1015381db4044a2c3ef
+Content-Type: application/json
+
+{
+    "Name": "newenfo18"
+}
+
+### update user data 
+PUT  http://localhost:8001/users/6798a1015381db4044a2c3ef
+Content-Type: application/json
+
+{
+    "Name": "newenfo19",
+    "email": "neweai3l@example.com",
+    "password": "newpassword"
+}
+
+### delete a user using id
 DELETE  http://localhost:8000/users/6797468f6977f8165567f357
